@@ -8,8 +8,8 @@ sys.path.append("/Users/forute/Documents/Academy/Resaech/Robustness_of_Dawid-Ske
 import experiment_syn.change_parameter.Create_Synthetic_Data as csd
 import model.Dawid_Skene as ds
 import model.Majority_Voting as mv
-import model.proposed_wcv as wcv
-import model.proposed_wcv_wp as wcv_wp
+import model.Worker_Clustering as wcv
+import model.Worker_Clusterring_with_Dirichlet_Prior as wcv_wp
 
 n = 100
 ms = [10, 50, 100]
@@ -65,7 +65,7 @@ for m in ms:
                                          'DS': acc_ds,
                                          'proposed1(wcv)': acc_wcv_list,
                                          'proposed2(wcv_wp)': acc_wcv_wp_list})
-                    data.to_csv("./experiment_syn/change_parameter/data_" +
+                    data.to_csv("./experiment-6-1/change_parameter/data_" +
                                 "n" + str(n) +
                                 "m" + str(m) +
                                 "K" + str(K) +
@@ -82,7 +82,7 @@ for m in ms:
                     plt.legend(loc="lower right")
                     plt.ylim(min(acc_mv, acc_ds, min(acc_wcv_list), min(acc_wcv_wp_list)) - 0.05,
                              max(acc_mv, acc_ds, max(acc_wcv_list), max(acc_wcv_wp_list)) + 0.05)
-                    plt.savefig("./experiment_syn/change_parameter/graph_" +
+                    plt.savefig("./experiment-6-1/change_parameter/graph_" +
                                 "n" + str(n) +
                                 "m" + str(m) +
                                 "K" + str(K) +

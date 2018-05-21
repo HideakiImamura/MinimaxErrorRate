@@ -8,8 +8,8 @@ sys.path.append("/Users/forute/Documents/Academy/Resaech/Clustering_Worker")
 import experiment_syn.change_parameter.Create_Synthetic_Data as csd
 import model.Dawid_Skene as ds
 import model.Majority_Voting as mv
-import model.proposed_wcv as wcv
-import model.proposed_wcv_wp as wcv_wp
+import model.Worker_Clustering as wcv
+import model.Worker_Clusterring_with_Dirichlet_Prior as wcv_wp
 
 n = 1000
 ms = [100]
@@ -69,7 +69,7 @@ for m in ms:
                                          'proposed1(wcv)': acc_wcv}])
                                          # 'proposed2(wcv_wp)': acc_wcv_wp})
                     data = data.append(acc)
-                    data.to_csv("./experiment_syn/adversarial/for_paper/data_" +
+                    data.to_csv("./experiment-6-1/adversarial/for_paper/data_" +
                                 "n" + str(n) +
                                 "m" + str(m) +
                                 "K" + str(K) +
@@ -84,7 +84,7 @@ for m in ms:
                     plt.xlabel("proportion of adversary")
                     plt.ylabel("Accuracy")
                     plt.legend(loc="upper right")
-                    plt.savefig("./experiment_syn/adversarial/for_paper/graph_" +
+                    plt.savefig("./experiment-6-1/adversarial/for_paper/graph_" +
                                 "n" + str(n) +
                                 "m" + str(m) +
                                 "K" + str(K) +

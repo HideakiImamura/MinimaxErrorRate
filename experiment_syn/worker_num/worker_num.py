@@ -9,7 +9,7 @@ sys.path.append("/Users/forute/Documents/Academy/Resaech/Clustering_Worker")
 import experiment_syn.worker_num.create_worker_labeling_number_dataset as csd
 import model.Dawid_Skene as ds
 import model.Majority_Voting as mv
-import model.proposed_wcv as wcv
+import model.Worker_Clustering as wcv
 
 n = 1000
 ms = [100]
@@ -29,7 +29,7 @@ for m in ms:
             g = np.array(sorted(task_class, key=lambda pair: pair[0]))[:, 1]
 
             print(1)
-            name = "./experiment_syn/worker_num/for_paper/data_" + \
+            name = "./experiment-6-1/worker_num/for_paper/data_" + \
                             "n" + str(n) + \
                             "m" + str(m) + \
                             "K" + str(K) + \
@@ -72,7 +72,7 @@ for m in ms:
                                      'proposed1(wcv)': acc_wcv}])
                 # 'proposed2(wcv_wp)': acc_wcv_wp})
                 data = data.append(acc, ignore_index=True)
-                data.to_csv("./experiment_syn/worker_num/for_paper/data_" +
+                data.to_csv("./experiment-6-1/worker_num/for_paper/data_" +
                             "n" + str(n) +
                             "m" + str(m) +
                             "K" + str(K) +
@@ -88,7 +88,7 @@ for m in ms:
                 plt.xlabel("proportion of adversary")
                 plt.ylabel("Accuracy")
                 plt.legend(loc="upper right")
-                plt.savefig("./experiment_syn/worker_num/for_paper/graph_" +
+                plt.savefig("./experiment-6-1/worker_num/for_paper/graph_" +
                             "n" + str(n) +
                             "m" + str(m) +
                             "K" + str(K) +

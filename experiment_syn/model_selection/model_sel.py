@@ -9,7 +9,7 @@ sys.path.append("/Users/forute/Documents/Academy/Resaech/Clustering_Worker")
 import experiment_syn.model_selection.create_worker_labeling_number_dataset as csd_c
 import experiment_syn.model_selection.create_power_law_dataset as csd_p
 import model.Dawid_Skene as ds
-import model.proposed_wcv as wcv
+import model.Worker_Clustering as wcv
 
 
 def R(rho, pi):
@@ -38,7 +38,7 @@ task = np.hsplit(task_class, [1])[0].ravel()
 true_class = np.hsplit(task_class, [1])[1].ravel()
 g = np.array(sorted(task_class, key=lambda pair: pair[0]))[:, 1]
 
-name = "./experiment_syn/model_selection/data_" + \
+name = "./experiment-6-1/model_selection/data_" + \
        "n" + str(n) + \
        "m" + str(m) + \
        "K" + str(K) + \

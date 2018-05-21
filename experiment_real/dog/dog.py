@@ -5,11 +5,11 @@ from sklearn.metrics import accuracy_score
 sys.path.append("/Users/forute/Documents/Academy/Resaech/Clustering_Worker")
 import model.Majority_Voting as mv
 import model.Dawid_Skene as ds
-import model.proposed_wcv as wcv
+import model.Worker_Clustering as wcv
 import matplotlib.pyplot as plt
 
 
-f = open("./experiment_real/dog/dog_truth.txt", "r")
+f = open("./experiment-6-2/dog/dog_truth.txt", "r")
 lines = f.readlines()
 f.close()
 task = np.array([], dtype=int)
@@ -23,7 +23,7 @@ for line in lines[1:]:
 
 task_worker_label = np.array([], dtype=int).reshape((0, 3))
 worker = np.array([], dtype=int)
-f = open("./experiment_real/dog/dog_crowd.txt", "r")
+f = open("./experiment-6-2/dog/dog_crowd.txt", "r")
 lines = f.readlines()
 f.close()
 for line in lines[1:]:
@@ -65,7 +65,7 @@ for L in L_list:
     data = pd.DataFrame({'MV': acc_mv,
                      'DS': acc_ds,
                      'proposed': acc_evi_list})
-    data.to_csv("./experiment_real/dog/L1_m.csv")
+    data.to_csv("./experiment-6-2/dog/L1_m.csv")
 
     plt.plot(np.arange(L) + 1, acc_mv * np.ones(L), label="MV", color="blue")
     plt.plot(np.arange(L) + 1, acc_ds * np.ones(L), label="DS", color="red")
@@ -73,5 +73,5 @@ for L in L_list:
     plt.xlabel("L")
     plt.ylabel("Accuracy")
     plt.legend(loc="lower right")
-    plt.savefig("./experiment_real/dog/L1_m.pdf")
+    plt.savefig("./experiment-6-2/dog/L1_m.pdf")
     plt.clf()

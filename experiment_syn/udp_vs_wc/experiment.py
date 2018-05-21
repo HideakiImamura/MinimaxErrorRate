@@ -9,7 +9,7 @@ sys.path.append("/Users/forute/Documents/Academy/Reseach/Clustering_Worker")
 import experiment_syn.worker_num.create_worker_labeling_number_dataset as csd
 import model.Dawid_Skene as ds
 import model.Majority_Voting as mv
-import model.proposed_wcv as wcv
+import model.Worker_Clustering as wcv
 import model.Uniform_Dirichlet_Prior as udp
 
 n = 100
@@ -30,7 +30,7 @@ for m in ms:
             true_class = np.hsplit(task_class, [1])[1].ravel()
             g = np.array(sorted(task_class, key=lambda pair: pair[0]))[:, 1]
 
-            name = "./experiment_syn/udp_vs_wc/data_" + \
+            name = "./experiment-6-1/udp_vs_wc/data_" + \
                             "n" + str(n) + \
                             "m" + str(m) + \
                             "K" + str(K) + \
@@ -80,7 +80,7 @@ for m in ms:
                                      'UDP': acc_udp}])
                 # 'proposed2(wcv_wp)': acc_wcv_wp})
                 data = data.append(acc, ignore_index=True)
-                data.to_csv("./experiment_syn/udp_vs_wc/data_" +
+                data.to_csv("./experiment-6-1/udp_vs_wc/data_" +
                             "n" + str(n) +
                             "m" + str(m) +
                             "K" + str(K) +
@@ -97,7 +97,7 @@ for m in ms:
                 plt.xlabel("proportion of adversary")
                 plt.ylabel("Accuracy")
                 plt.legend(loc="upper right")
-                plt.savefig("./experiment_syn/udp_vs_wc/graph_" +
+                plt.savefig("./experiment-6-1/udp_vs_wc/graph_" +
                             "n" + str(n) +
                             "m" + str(m) +
                             "K" + str(K) +

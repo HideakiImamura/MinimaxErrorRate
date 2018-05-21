@@ -2,10 +2,10 @@ import numpy as np
 import sys
 import pandas as pd
 from sklearn.metrics import accuracy_score
-sys.path.append("/Users/forute/Documents/Academy/Resaech/Robustness_of_Dawid-Skene_Model/experiment_real")
+sys.path.append("/Users/forute/Documents/Academy/Resaech/Robustness_of_Dawid-Skene_Model/experiment-6-2")
 import model.Majority_Voting as mv
 import model.Dawid_Skene as ds
-import model.proposed_wcv_wp as evi
+import model.Worker_Clusterring_with_Dirichlet_Prior as evi
 import matplotlib.pyplot as plt
 
 

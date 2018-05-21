@@ -10,7 +10,7 @@ sys.path.append("/Users/forute/Documents/Academy/Resaech/Clustering_Worker")
 import experiment_syn.change_parameter.Create_Synthetic_Data as csd
 import model.Dawid_Skene as ds
 import model.Majority_Voting as mv
-import model.proposed_wcv as wcv
+import model.Worker_Clustering as wcv
 
 
 def loss_lower_bound(n, pi, rho):
@@ -99,7 +99,7 @@ for i, x in enumerate(xs):
                          'proposed1(wcv)_lb': lb_wcv}])
     # 'proposed2(wcv_wp)': acc_wcv_wp})
     data = data.append(acc)
-    data.to_csv("./experiment_syn/bound/data_" +
+    data.to_csv("./experiment-6-1/bound/data_" +
                 "n" + str(n) +
                 "m" + str(m) +
                 "K" + str(K) +
@@ -114,7 +114,7 @@ for i, x in enumerate(xs):
     plt.xlabel("proportion of adversary")
     plt.ylabel("Error lower bound")
     plt.legend(loc="lower right")
-    plt.savefig("./experiment_syn/bound/graph_" +
+    plt.savefig("./experiment-6-1/bound/graph_" +
                 "n" + str(n) +
                 "m" + str(m) +
                 "K" + str(K) +

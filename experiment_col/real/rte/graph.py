@@ -7,7 +7,7 @@ import sys
 
 sys.path.append("/Users/forute/Documents/Academy/Resaech/Clustering_Worker")
 import model.Dawid_Skene as ds
-import model.proposed_wcv as wcv
+import model.Worker_Clustering as wcv
 
 
 def R(rho, pi):
@@ -21,7 +21,7 @@ def R(rho, pi):
                 kl -= rho[g] * rho[g_] * entropy(pk=(pi[j, g] + delta), qk=(pi[j, g_] + delta))
     return kl
 
-data = pd.read_csv("./experiment_real/rte/rte.standardized.tsv", delimiter="\t")
+data = pd.read_csv("./experiment-6-2/rte/rte.standardized.tsv", delimiter="\t")
 task = np.array([], dtype=int)
 worker = np.array([], dtype=int)
 g = np.array([], dtype=int)
@@ -71,7 +71,7 @@ for m in ms:
         R_wcv = R(rho_wcv, pi_wcv)
         print("L = {2}: L_wc, R_wc   = {0}, {1}".format(L_wcv, R_wcv, L))
         data = data.append(pd.Series([L_wcv, R_wcv], index=data.columns), ignore_index=True)
-        data.to_csv("./experiment_col/real/rte/data_" +
+        data.to_csv("./experiment-6-3/real/rte/data_" +
                     "n" + str(n) +
                     "m" + str(m) +
                     "K" + str(K) + ".csv")
@@ -95,7 +95,7 @@ for m in ms:
 
         axL.legend(loc="upper right")
         axR.legend(loc="upper right")
-        fig.savefig("./experiment_col/real/rte/graph_" +
+        fig.savefig("./experiment-6-3/real/rte/graph_" +
                     "n" + str(n) +
                     "m" + str(m) +
                     "K" + str(K) + ".png")

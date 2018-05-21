@@ -9,7 +9,7 @@ sys.path.append("/Users/forute/Documents/Academy/Resaech/Clustering_Worker")
 import experiment_syn.power_law.create_power_law_dataset as csd
 import model.Dawid_Skene as ds
 import model.Majority_Voting as mv
-import model.proposed_wcv as wcv
+import model.Worker_Clustering as wcv
 
 n = 1000
 ms = [100]
@@ -31,7 +31,7 @@ for m in ms:
             true_class = np.hsplit(task_class, [1])[1].ravel()
             g = np.array(sorted(task_class, key=lambda pair: pair[0]))[:, 1]
 
-            name = "./experiment_syn/power_law/for_paper/ForIRCNdata_" + \
+            name = "./experiment-6-1/power_law/for_paper/ForIRCNdata_" + \
                             "n" + str(n) + \
                             "m" + str(m) + \
                             "K" + str(K) + \
@@ -81,7 +81,7 @@ for m in ms:
                 plt.xlabel("proportion of adversary")
                 plt.ylabel("Accuracy")
                 plt.legend(loc="upper right")
-                plt.savefig("./experiment_syn/power_law/for_paper/ForIRCNgraph_" +
+                plt.savefig("./experiment-6-1/power_law/for_paper/ForIRCNgraph_" +
                             "n" + str(n) +
                             "m" + str(m) +
                             "K" + str(K) +

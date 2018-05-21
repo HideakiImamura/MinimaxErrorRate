@@ -7,7 +7,7 @@ import sys
 
 sys.path.append("/Users/forute/Documents/Academy/Resaech/Clustering_Worker")
 import model.Dawid_Skene as ds
-import model.proposed_wcv as wcv
+import model.Worker_Clustering as wcv
 
 
 def R(rho, pi):
@@ -28,8 +28,8 @@ K = 2
 epsilon = 1e-2
 Ls = np.arange(1, 40)
 
-task_worker_class = np.array(pd.read_csv("./experiment_real/bluebirds/twl.csv")[['0', '1', '2']].values.tolist())
-g = np.array(pd.read_csv("./experiment_real/bluebirds/gt.csv")[['0']].values.tolist()).T[0]
+task_worker_class = np.array(pd.read_csv("./experiment-6-2/bluebirds/twl.csv")[['0', '1', '2']].values.tolist())
+g = np.array(pd.read_csv("./experiment-6-2/bluebirds/gt.csv")[['0']].values.tolist()).T[0]
 
 for m in ms:
     data = pd.DataFrame(columns=["L", "R"])
@@ -48,7 +48,7 @@ for m in ms:
         R_wcv = R(rho_wcv, pi_wcv)
         print("L = {2}: L_wc, R_wc   = {0}, {1}".format(L_wcv, R_wcv, L))
         data = data.append(pd.Series([L_wcv, R_wcv], index=data.columns), ignore_index=True)
-        data.to_csv("./experiment_col/real/bluebirds/data_" +
+        data.to_csv("./experiment-6-3/real/bluebirds/data_" +
                     "n" + str(n) +
                     "m" + str(m) +
                     "K" + str(K) + ".csv")
@@ -72,7 +72,7 @@ for m in ms:
 
         axL.legend(loc="upper right")
         axR.legend(loc="upper right")
-        fig.savefig("./experiment_col/real/bluebirds/graph_" +
+        fig.savefig("./experiment-6-3/real/bluebirds/graph_" +
                     "n" + str(n) +
                     "m" + str(m) +
                     "K" + str(K) + ".png")

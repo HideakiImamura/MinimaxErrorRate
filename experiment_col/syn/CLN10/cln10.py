@@ -8,7 +8,7 @@ import sys
 sys.path.append("/Users/forute/Documents/Academy/Resaech/Clustering_Worker")
 import experiment_syn.worker_num.create_worker_labeling_number_dataset as csd
 import model.Dawid_Skene as ds
-import model.proposed_wcv as wcv
+import model.Worker_Clustering as wcv
 
 
 def R(rho, pi):
@@ -58,7 +58,7 @@ for m in ms:
                 R_wcv = R(rho_wcv, pi_wcv)
                 print("L = {2}: L_wc, R_wc   = {0}, {1}".format(L_wcv, R_wcv, L))
                 data = data.append(pd.Series([L_wcv, R_wcv], index=data.columns), ignore_index=True)
-                data.to_csv("./experiment_col/syn/CLN10/data_" +
+                data.to_csv("./experiment-6-3/syn/CLN10/data_" +
                             "n" + str(n) +
                             "m" + str(m) +
                             "K" + str(K) +
@@ -84,7 +84,7 @@ for m in ms:
 
                 axL.legend(loc="upper right")
                 axR.legend(loc="upper right")
-                fig.savefig("./experiment_col/syn/CLN10/graph_" +
+                fig.savefig("./experiment-6-3/syn/CLN10/graph_" +
                             "n" + str(n) +
                             "m" + str(m) +
                             "K" + str(K) +

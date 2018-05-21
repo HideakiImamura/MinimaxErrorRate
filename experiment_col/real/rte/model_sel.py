@@ -7,7 +7,7 @@ import os
 
 sys.path.append("/Users/forute/Documents/Academy/Resaech/Clustering_Worker")
 import model.Dawid_Skene as ds
-import model.proposed_wcv as wcv
+import model.Worker_Clustering as wcv
 
 
 def R(rho, pi):
@@ -28,7 +28,7 @@ K = 2
 epsilon = 1e-2
 Ls = np.arange(1, 165)
 
-data = pd.read_csv("./experiment_real/rte/rte.standardized.tsv", delimiter="\t")
+data = pd.read_csv("./experiment-6-2/rte/rte.standardized.tsv", delimiter="\t")
 task = np.array([], dtype=int)
 worker = np.array([], dtype=int)
 g = np.array([], dtype=int)
@@ -55,7 +55,7 @@ for _, row in data.iterrows():
     k = int(row["response"])
     task_worker_label = np.concatenate((task_worker_label, [[i, j, k]]))
 
-name = "./experiment_real/rte/data_" + \
+name = "./experiment-6-2/rte/data_" + \
        "n" + str(n) + \
        "m" + str(m) + \
        "K" + str(K)

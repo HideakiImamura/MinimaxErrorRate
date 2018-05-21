@@ -4,12 +4,12 @@ import sys
 sys.path.append("/Users/forute/Documents/Academy/Resaech/Clustering_Worker")
 import model.Majority_Voting as mv
 import model.Dawid_Skene as ds
-import model.proposed_wcv as wcv
+import model.Worker_Clustering as wcv
 import matplotlib.pyplot as plt
 from sklearn.metrics import accuracy_score
 
 
-data = pd.read_csv("./experiment_real/rte/rte.standardized.tsv", delimiter="\t")
+data = pd.read_csv("./experiment-6-2/rte/rte.standardized.tsv", delimiter="\t")
 task = np.array([], dtype=int)
 worker = np.array([], dtype=int)
 g = np.array([], dtype=int)
@@ -59,12 +59,12 @@ for L in L_list:
     data = pd.DataFrame({'MV': acc_mv,
                      'DS': acc_ds,
                      'proposed': acc_evi_list})
-    data.to_csv("./experiment_real/rte/rte.csv")
+    data.to_csv("./experiment-6-2/rte/rte.csv")
     plt.plot(np.arange(L), acc_mv * np.ones(L), label="MV", color="blue")
     plt.plot(np.arange(L), acc_ds * np.ones(L), label="DS", color="red")
     plt.plot(np.arange(L), acc_evi_list, label="proposed", color="green")
     plt.xlabel("L")
     plt.ylabel("Accuracy")
     plt.legend(loc="lower right")
-    plt.savefig("./experiment_real/rte/rte.pdf")
+    plt.savefig("./experiment-6-2/rte/rte.pdf")
     plt.clf()

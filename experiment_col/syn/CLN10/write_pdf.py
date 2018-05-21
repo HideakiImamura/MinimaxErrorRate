@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import sys
 
 sys.path.append("/Users/forute/Documents/Academy/Resaech/Clustering_Worker")
-now = "./experiment_col/syn/CLN10/"
+now = "./experiment-6-3/syn/CLN10/"
 
 data = pd.read_csv(now + "data_n1000m100K2N10c0.3.csv")
 Ls = list(data['L'])[1:]
