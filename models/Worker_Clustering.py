@@ -116,7 +116,7 @@ def one_iteration(x, K, L, epsilon=1e-2, random=False):
     return theta, phi, lambda_, rho
 
 
-def wcv(task_worker_class, n, m, K, L, epsilon=1e-2):
+def inference(task_worker_class, n, m, K, L, epsilon=1e-2):
     '''
     Worker Clustering Version
     :param task_worker_class:

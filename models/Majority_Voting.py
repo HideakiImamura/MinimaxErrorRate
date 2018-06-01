@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def MV(task_worker_class, n, m, K):
+def inference(task_worker_class, n, m, K):
     '''
     :param task_worker_class:   Input. Each element (i, j, k) represents that worker j labeled task i as class k.
     :param n:                   The number of tasks.

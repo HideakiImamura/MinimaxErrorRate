@@ -311,7 +311,7 @@ def DS_elbo(task_worker_class, n, m, K, epsilon=1e-2, itr=10):
     return g_hat
 
 
-def DS_elbo_debug(task_worker_class, n, m, K, epsilon=1e-2):
+def inference(task_worker_class, n, m, K, epsilon=1e-2):
     x = calculate_num(task_worker_class, n, m, K)
     c = 1
 

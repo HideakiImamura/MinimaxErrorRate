@@ -124,7 +124,7 @@ def one_iteration(x, epsilon):
     return g, pi, rho, alpha
 
 
-def udp(task_worker_class, n, m, K, epsilon=1e-2):
+def inference(task_worker_class, n, m, K, epsilon=1e-2):
     x = convert_input(task_worker_class, n, m, K)
     g, pi, rho, alpha = one_iteration(x, epsilon)
     return g, [pi, rho, alpha]

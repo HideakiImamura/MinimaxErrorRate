@@ -1,6 +1,5 @@
 import numpy as np
 from scipy import special
-import pandas as pd
 
 
 def is_chance_rate(theta):
@@ -175,7 +174,7 @@ def convergence_condition(elbo_new, elbo_old, epsilon):
         return False
 
 
-def EVI(task_worker_class, n, m, K, L, epsilon=1e-2):
+def inference(task_worker_class, n, m, K, L, epsilon=1e-2):
     # f = open("log.txt", 'w')
     # f.close()
     acc_param = 1e-2
